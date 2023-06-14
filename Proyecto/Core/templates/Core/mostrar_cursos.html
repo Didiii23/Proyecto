@@ -1,0 +1,18 @@
+{% extends 'Core/base.html' %}
+
+{% load static %}
+{% block titulo %}
+    Form con Api
+{% endblock titulo %} 
+
+
+
+{% block main %}
+
+
+{% for curso in cursos %}
+    <li>{{ curso }}</li>
+{% endfor %}
+
+
+{% endblock main %}
