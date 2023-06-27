@@ -1,0 +1,24 @@
+{% extends 'Core/base.html' %}
+
+{% load static %}
+{% block titulo %}
+    
+{% endblock titulo %} 
+
+
+
+{% block main %}
+
+{% for curso in object_list %}  
+
+    <li>
+
+        NOMBRE: {{ curso.nombre }}
+        <a href="{% url 'List' %}">Regresar</a>
+       
+
+        
+    </li>
+    {% endfor %}
+    
+{% endblock main %}
