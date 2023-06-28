@@ -1,46 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
-from accounts.forms import UserEditForm, AvatarForm, MyUserEditForm
-from .forms import UserRegisterForm
+from accounts.forms import UserEditForm, AvatarForm, MyUserEditForm,UserRegisterForm,CambiarPasswordForm
 from .models import Avatar
 from django.contrib.auth.models import User
-
+from django.contrib.auth.views import LogoutView, PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View
 from django.urls import reverse_lazy
-from .forms import CambiarPasswordForm
 
 
-
-
-
-# Create your views here.
-def login_request(request):
-
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data = request.POST)
-
-        if form.is_valid():  # Si pasó la validación de Django
-
-            usuario = form.cleaned_data.get('username')
-            contrasenia = form.cleaned_data.get('password')
-
-            user = authenticate(username= usuario, password=contrasenia)
-
-            if user is not None:
-                login(request, user)
-                return render(request, "AppCoder/index.html", {"mensaje":f"Bienvenido {usuario}"})
-            else:
-                return render(request, "AppCoder/index.html", {"mensaje":"Datos incorrectos"})
-        else:
-            return render(request, "AppCoder/index.html", {"mensaje":"Formulario erroneo"})
-
-    form = AuthenticationForm()
-
-    return render(request, "users/login.html", {"form": form})
 
 # Vista de registro
 def register(request):
@@ -60,6 +31,37 @@ def register(request):
         form = UserRegisterForm()     
 
     return render(request,"accounts/create_account.html" ,  {"form":form})
+
+# Vista Login
+def login_request(request):
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data = request.POST)
+
+        if form.is_valid():  # Si pasó la validación de Django
+
+            usuario = form.cleaned_data.get('username')
+            contraseña = form.cleaned_data.get('password')
+
+            user = authenticate(username= usuario, password=contraseña)
+
+            
+            if user is not None:
+                login(request, user)
+                return render(request, "Core/index.html", {"mensaje":f"Bienvenido {usuario}"})
+            else:
+                return render(request, "accounts/login.html",{'form':form}, {"mensaje":"Datos incorrectos"})
+        else:
+            return render(request, "accounts/login.html", {"mensaje":"Formulario erroneo"})
+
+    form = AuthenticationForm()
+
+    return render(request, "accounts/login.html", {"form": form})
+
+class Logout (LogoutView):
+    template_name = 'accounts/logout.html'
+
+
 
 # Vista de editar el perfil
 @login_required

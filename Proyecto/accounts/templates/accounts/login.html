@@ -1,0 +1,18 @@
+{% extends 'Core/base.html' %}
+
+{% load static %}
+
+{% block titulo %}  Login   {% endblock titulo %} 
+
+
+
+{% block main %}
+
+
+    <form method = "POST" class = "m-2">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Iniciar sesión" class="btn btn-primary">
+    </form>
+    
+{% endblock main %}

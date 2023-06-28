@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Avatar
 
 
-#Agregamos el form UserCreationForm de Django
+#Creamos UserRegisterForm heredando de UserCreationForm
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
@@ -16,7 +16,7 @@ class UserRegisterForm(UserCreationForm):
 
 
 
-# Agregamos el form UserEditForm de Django
+# Creamos UserEditForm
 class UserEditForm(UserCreationForm):
 
     # Obligatorios
