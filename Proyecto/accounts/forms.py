@@ -7,8 +7,8 @@ from .models import Avatar
 #Creamos UserRegisterForm heredando de UserCreationForm
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Validar contraseña', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Verify Password', widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -21,8 +21,8 @@ class UserEditForm(UserCreationForm):
 
     # Obligatorios
     email = forms.EmailField(label="Ingrese su email:")
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Validar contraseña', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Verify password', widget=forms.PasswordInput)
     last_name = forms.CharField()
     first_name = forms.CharField()
 
@@ -48,5 +48,5 @@ class MyUserEditForm(forms.Form):
 
 
 class CambiarPasswordForm(forms.Form):
-    password1 = forms.CharField(label="Repetir contraseña", widget=forms.PasswordInput())
-    password2 = forms.CharField(label="Repetir contraseña", widget=forms.PasswordInput())
+    password1 = forms.CharField(label="New Password", widget=forms.PasswordInput())
+    password2 = forms.CharField(label="Verify Password", widget=forms.PasswordInput())

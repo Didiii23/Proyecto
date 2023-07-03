@@ -1,0 +1,49 @@
+{% extends 'Core/base.html' %}
+
+{% load static %}
+{% block titulo %}
+    Inicio
+{% endblock titulo %} 
+
+
+
+{% block main %}
+
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'Core/assets/img/Tick4.jpg' %}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Tick Toper</h2>
+                            <p>Tick Toper es una banda integrada por jóvenes de San Pedro, ya establecidos en Buenos Aires, que se supo insertar rápidamente en el circuito underground Argentino. La energía y potencia son unos de sus principales atributos.</p>
+                            <p>Riffs de guitarras taladrantes y sintetizadores de electroshock, se combinan en adecuadas proporciones en canciones aceleradas, con ritmos frenéticos e inevitablemente entradoras.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 2-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'Core/assets/img/Tick6.jpg' %}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">Islas de las Lechiguanas</h2>
+                            <p>No importa si es en un centro cultural de barrio o en el mejor club de conciertos de Buenos Aires, los TT dejan su sello en cualquier escenario donde toquen, desplegando shows con puestas en escena peculiares y un vestuario caseramente camaleonico. </p>
+                            <p>Tick Toper tiene en su haber tres discos de estudio editados de forma independiente. Monserratt (2011), "De ida sin vuelta", de 2013 y Seres Nuevos de 2017.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+
+        {% endblock main %}
+       

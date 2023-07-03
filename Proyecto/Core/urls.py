@@ -2,8 +2,9 @@ from django.urls import path
 from Core import views
 from Core import class_views
 
+
 urlpatterns = [
-    path('', views.inicio, name="Inicio"),
+    
     path('profesores/', views.profesores, name="Profesores"),
     path('estudiantes/', views.estudiantes, name="Estudiantes"),
     path('cursos/', views.cursos, name="Cursos"),

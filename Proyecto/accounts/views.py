@@ -48,7 +48,7 @@ def login_request(request):
             
             if user is not None:
                 login(request, user)
-                return render(request, "Core/index.html", {"mensaje":f"Bienvenido {usuario}"})
+                return render(request, "Tick/Inicio.html", {"mensaje":f"Bienvenido {usuario}"})
             else:
                 return render(request, "accounts/login.html",{'form':form}, {"mensaje":"Datos incorrectos"})
         else:
@@ -64,6 +64,7 @@ class Logout (LogoutView):
 
 
 # Vista de editar el perfil
+
 @login_required
 def editarPerfil(request):
 
@@ -100,7 +101,7 @@ def editarPerfil(request):
             # archivo_form.save()
 
 
-            return render(request, "AppCoder/index.html")
+            return render(request, "Tick/Inicio.html")
         else:
             miFormulario = MyUserEditForm()
 
@@ -114,7 +115,7 @@ def editarPerfil(request):
         )
     return render(
         request,
-        "users/editarPerfil.html",
+        "accounts/edit_account.html",
         {
             "miFormulario": miFormulario,
             "usuario": usuario
@@ -122,7 +123,7 @@ def editarPerfil(request):
     )
 
 class CambiarPasswordView(LoginRequiredMixin, View):
-    template_name = "users/cambiar_pass.html"
+    template_name = "accounts/cambiar_pass.html"
     form_class = CambiarPasswordForm
     success_url = reverse_lazy("Inicio")
 
@@ -141,4 +142,4 @@ class CambiarPasswordView(LoginRequiredMixin, View):
             if pass1 == pass2:
                 usuario.set_password(pass1)
                 usuario.save()
-                return render(request, "AppCoder/index.html")
+                return render(request, "Tick/Inicio.html")

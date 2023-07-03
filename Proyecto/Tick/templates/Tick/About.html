@@ -1,0 +1,39 @@
+{% extends 'Core/base.html' %}
+
+{% load static %}
+{% block titulo %}
+    Inicio
+{% endblock titulo %} 
+
+
+
+{% block main %}
+
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'Core/assets/img/Tick4.jpg' %}" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Tick Toper</h2>
+                            <p>Emilio Trota - Singer </p>
+                            <p>Juan Scorcelli - Bass </p>
+                            <p>David Diez - Keyboards </p>
+                            <p>Facundo Gutierrez - Drums</p>
+                            <p>Nicolas Di Diego - Guitar</p>
+                            <p>Juan Crelier - Percussionist</p>
+                            <p>Lucas Lorenzo - Sound Engineer</p>
+                            <p>Email: ticktoperok@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+  
+
+        {% endblock main %}
+       
